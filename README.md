@@ -1,5 +1,7 @@
 # Early Defect Prediction
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Alarm_Clock_Vector.svg" width="350">
+
 ## To replicate the results of RQ2a, RQ2b, and RQ3 in the paper follow the instructions below:
 
 ### Prerequisites
