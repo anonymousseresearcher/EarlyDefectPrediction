@@ -51,7 +51,7 @@ $ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
 
 $ `cd EarlyDefectPrediction`
 
-# (1) Final Result: To generate 2 tables used in the results section of the paper.
+## (1) Final Result: To generate 2 tables used in the results section of the paper.
 
 $ `python3 generate_tables.py`
 
