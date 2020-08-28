@@ -51,13 +51,13 @@ $ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
 
 $ `cd EarlyDefectPrediction`
 
-## (1) Final Result: To generate 2 tables used in the results section of the paper.
+## (1) Final Result: To generate Table IV and V of the paper, execute the script below:
 
 $ `python3 generate_tables.py`
 
 **After successful execution, 2 csv files (Tables) will be generated at the current working directory**
 
-## (2) Intermediate Result: To generate ranks for each policy:learner on all 7-evaluation measures using Scott-Knott, follow the instructions below:
+## (2) To understand Table IV and V in detail execute the scripts below. The two scripts ranks each policy:learner (pair) on all 7-evaluation measures using Scott-Knott:
 
 $ `chmod +x .sh tables_set1.sh tables_set2.sh`
 
@@ -71,7 +71,7 @@ $ `./tables_set2.sh`
 **After successful execution, 7 (csv) files on for each evaluation measure will be generated at the current working directory**
 **Note: These 7 csv's are used as an input to (1)**
 
-## Detailed Project Release wise reports (learner, metric and measures) are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report)
+## Reports for (2) are computed from [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report) (Project-Release wise report across all learners and evaluation measures)
 
-## Projects and release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
+## Projects with release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
 
