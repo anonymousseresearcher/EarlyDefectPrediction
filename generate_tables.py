@@ -188,7 +188,7 @@ def generateTable(measuresCSVPath, fileName, sortedMap):
   
 
     df = df.sort_values(['Wins', 'Recall', 'PF'], ascending=False)
-    df.to_csv(measuresCSVPath+fileName+'.csv', index=False)
+    df.to_csv(fileName+'.csv', index=False)
     
     
 
