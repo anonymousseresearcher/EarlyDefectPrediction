@@ -51,7 +51,7 @@ $ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
 
 $ `cd EarlyDefectPrediction`
 
-## (1) Final Result: To generate Table IV and V of the paper, execute the script below:
+## (1) Final Result (RQ1,RQ2 and RQ3): To generate Table IV and V of the paper, execute the script below:
 
 $ `python3 generate_tables.py`
 
