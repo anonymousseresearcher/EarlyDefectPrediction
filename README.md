@@ -71,3 +71,5 @@ $ `./tables_set2.sh`
 **After successful execution, 7 (csv) files on for each evaluation measure will be generated at the current working directory**
 **Note: These 7 csv's are used as an input to (1)**
 
+## Detailed Project Release wise reports (learner, metric and measures) are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report)
+
