@@ -73,5 +73,5 @@ $ `./tables_set2.sh`
 
 ## Detailed Project Release wise reports (learner, metric and measures) are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report)
 
-## Projects and release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/data)
+## Projects and release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
 
