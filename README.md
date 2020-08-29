@@ -34,14 +34,6 @@ looking for “short cuts” that simplify the whole analysis.
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/overview.PNG" width="500">
 
-## 1. Quick Replication follow the steps in the image below
-
-<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/quick.PNG" width="900">
-
-## 2. To replication from scratch follow the steps in the image below
-
-<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/scratch.PNG" width="900">
-
 ## Prerequisites
 
 * Linux Terminal
@@ -53,6 +45,16 @@ looking for “short cuts” that simplify the whole analysis.
 1. $ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
 1. $ `cd EarlyDefectPrediction`
 1. $ `pip3 install -r requirements.txt`
+
+## 1. Quick Replication follow the steps in the image below
+
+<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/quick.PNG" width="900">
+
+## 2. To replication from scratch follow the steps in the image below
+
+<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/scratch.PNG" width="900">
+
+
 
 ## Resources
 
