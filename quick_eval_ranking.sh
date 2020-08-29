@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo Ranking sampling policies evaluated on all 6 learners 
+echo Ranking sampling policies evaluated on all 6 learners (Table IV and Table V individual rankings)
 
 cat ./result/table2/zbrier.txt | python2 run_scott_knott.py --text 30 --latex False > table4_brier.csv
 
