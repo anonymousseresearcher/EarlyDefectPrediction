@@ -28,42 +28,35 @@ domains that require a complex and data-hungry analysis. But
 before assuming complexity, it is prudent to check the raw data
 looking for “short cuts” that simplify the whole analysis.
 
-## To reproduce the tables in results section of the paper follow the instructions below:
+## We offer two approaches to reproduce RQ1, RQ2, and RQ3 results as shown in the image below:
+1. ### Quick Replication (OR) 
+2. ### Replication from Scratch
 
-### Prerequisites
+<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/overview.PNG" width="500">
+
+## 1. Quick Replication follow the steps in the image below
+
+<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/quick.PNG" width="900">
+
+## 2. To replication from scratch follow the steps in the image below
+
+<img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/scratch.PNG" width="900">
+
+## Prerequisites
 
 * Linux Terminal
-* python 2, python 3
+* python 2 and python 3
 * Git support
-* pandas
 
-### On your linux terminal
+### On your Linux terminal
 
-$ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
+1. $ `git clone https://github.com/anonymousseresearcher/EarlyDefectPrediction.git`
+1. $ `cd EarlyDefectPrediction`
+1. $ `pip3 install -r requirements.txt`
 
-$ `cd EarlyDefectPrediction`
+## Resources
 
-## (1) [Time to Run: 1 min] Final Result (RQ1,RQ2 and RQ3): To generate Table IV and V of the paper, execute the script below:
+1. ## Projects with release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
+2. ## Project predictions (pre-generated) results are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report) (Project-Release wise report across all learners and evaluation measures)
 
-$ `python3 generate_tables.py`
-
-**After successful execution, 2 csv files (Tables) will be generated at the current working directory**
-
-## (2) [Time to Run: 30 min] To understand Table IV and V in detail execute the scripts below. The two scripts ranks each policy:learner (pair) on all 7-evaluation measures using Scott-Knott:
-
-$ `chmod +x tables_set1.sh tables_set2.sh`
-
-$ `./tables_set1.sh`
-
-**After successful execution, 7 (csv) files on for each evaluation measure will be generated at the current working directory**
-**Note: These 7 csv's are used as an input to (1)**
-
-$ `./tables_set2.sh`
-
-**After successful execution, 7 (csv) files on for each evaluation measure will be generated at the current working directory**
-**Note: These 7 csv's are used as an input to (1)**
-
-## Reports for (2) are computed from [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report) (Project-Release wise report across all learners and evaluation measures)
-
-## Projects with release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
 
