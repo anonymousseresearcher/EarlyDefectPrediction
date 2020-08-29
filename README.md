@@ -51,7 +51,7 @@ $ `python3 generate_tables.py`
 
 ## (2) [Time to Run: 30 min] To understand Table IV and V in detail execute the scripts below. The two scripts ranks each policy:learner (pair) on all 7-evaluation measures using Scott-Knott:
 
-$ `chmod +x .sh tables_set1.sh tables_set2.sh`
+$ `chmod +x tables_set1.sh tables_set2.sh`
 
 $ `./tables_set1.sh`
 
