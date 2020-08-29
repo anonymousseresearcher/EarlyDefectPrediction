@@ -24,21 +24,19 @@ def getCleanCount( xDF):
     return len(xDF[xDF['Buggy'] == 0])
 
 
-PROJECTS_155 = ['ActionBarSherlock']
-
-# #, 'active_merchant', 'ajenti', 'android', 'androidannotations', 'AnySoftKeyboard', 'apollo', 'assetic', 'backup', 'beets',
-#                'bitcoin',  'brackets', 'brakeman', 'brotli', 'Cachet',  'camel', 'canal', 'capybara', 'cassandra', 'Catch', 'CodeIgniter', 'codis', 'compass',
-#                'coreclr', 'curl', 'dagger', 'devise', 'diaspora', 'disruptor', 'django-rest-framework', 'django-tastypie', 'django', 'dompdf', 'druid', 'elasticsearch',
-#                'eventmachine', 'facebook-android-sdk', 'fat_free_crm', 'fluentd', 'formtastic', 'fresco', 'gevent', 'glide', 'go-ethereum', 'google-api-php-client',
-#                 'gradle', 'grape', 'grav', 'greenDAO', 'GSYVideoPlayer', 'guava', 'gunicorn', 'home-assistant', 'homebrew-cask', 'Hystrix', 'Imagine', 'ionic',
-#                 'ipython', 'istio', 'jadx', 'jekyll', 'jieba', 'jinja2', 'jq', 'jsoup', 'junit', 'kafka', 'leakcanary', 'Lean', 'libgdx', 'libsass', 'libsodium',
-#                 'logstash', 'macdown', 'macvim', 'masscan', 'mechanize', 'memcached', 'metasploit-framework', 'metrics', 'mezzanine', 'middleman', 'mopidy', 'mosh',
-#                 'mybatis-3', 'nanomsg', 'neovim', 'netty', 'newspaper', 'Newtonsoft.Json', 'numpy', 'okhttp', 'pandas', 'passenger', 'patternlab-php', 'peewee',
-#                 'PHP-CS-Fixer', 'phpunit', 'picasso', 'piwik', 'portia', 'postgres', 'powerline', 'prawn', 'predis', 'proxygen', 'pry', 'puphpet', 'pyspider',
-#                 'pyston', 'raiden', 'rails_best_practices', 'rasa', 'realm-java', 'redis', 'redisson', 'requests', 'rhino', 'roboguice', 'rubocop', 'ruby',
-#                 'scikit-learn', 'seaborn', 'ServiceStack', 'SFML',   'shadowsocks-csharp', 'Signal-Android', 'SignalR', 'springside4',
-#                'state_machine', 'sunspot', 'swoole', 'symfony', 'sympy', 'sysdig', 'taiga-back', 'tesseract', 'thanos', 'ThinkUp', 'tiled', 'titan', 'tweepy', 'Twig',
-#                'twitter', 'Validation', 'vcr', 'vert.x', 'wagtail', 'watchman', 'WP-API', 'wp-cli', 'yii', 'zf2', 'zipline', 'zulip']
+PROJECTS_155 = ['ActionBarSherlock', 'active_merchant', 'ajenti', 'android', 'androidannotations', 'AnySoftKeyboard', 'apollo', 'assetic', 'backup', 'beets',
+               'bitcoin',  'brackets', 'brakeman', 'brotli', 'Cachet',  'camel', 'canal', 'capybara', 'cassandra', 'Catch', 'CodeIgniter', 'codis', 'compass',
+               'coreclr', 'curl', 'dagger', 'devise', 'diaspora', 'disruptor', 'django-rest-framework', 'django-tastypie', 'django', 'dompdf', 'druid', 'elasticsearch',
+               'eventmachine', 'facebook-android-sdk', 'fat_free_crm', 'fluentd', 'formtastic', 'fresco', 'gevent', 'glide', 'go-ethereum', 'google-api-php-client',
+                'gradle', 'grape', 'grav', 'greenDAO', 'GSYVideoPlayer', 'guava', 'gunicorn', 'home-assistant', 'homebrew-cask', 'Hystrix', 'Imagine', 'ionic',
+                'ipython', 'istio', 'jadx', 'jekyll', 'jieba', 'jinja2', 'jq', 'jsoup', 'junit', 'kafka', 'leakcanary', 'Lean', 'libgdx', 'libsass', 'libsodium',
+                'logstash', 'macdown', 'macvim', 'masscan', 'mechanize', 'memcached', 'metasploit-framework', 'metrics', 'mezzanine', 'middleman', 'mopidy', 'mosh',
+                'mybatis-3', 'nanomsg', 'neovim', 'netty', 'newspaper', 'Newtonsoft.Json', 'numpy', 'okhttp', 'pandas', 'passenger', 'patternlab-php', 'peewee',
+                'PHP-CS-Fixer', 'phpunit', 'picasso', 'piwik', 'portia', 'postgres', 'powerline', 'prawn', 'predis', 'proxygen', 'pry', 'puphpet', 'pyspider',
+                'pyston', 'raiden', 'rails_best_practices', 'rasa', 'realm-java', 'redis', 'redisson', 'requests', 'rhino', 'roboguice', 'rubocop', 'ruby',
+                'scikit-learn', 'seaborn', 'ServiceStack', 'SFML',   'shadowsocks-csharp', 'Signal-Android', 'SignalR', 'springside4',
+               'state_machine', 'sunspot', 'swoole', 'symfony', 'sympy', 'sysdig', 'taiga-back', 'tesseract', 'thanos', 'ThinkUp', 'tiled', 'titan', 'tweepy', 'Twig',
+               'twitter', 'Validation', 'vcr', 'vert.x', 'wagtail', 'watchman', 'WP-API', 'wp-cli', 'yii', 'zf2', 'zipline', 'zulip']
 
 def getProjectNames():
     return PROJECTS_155
@@ -218,9 +216,4 @@ def formatDF(rdf):
 
 def getProject(p):
     return project(p)
-
-
-
-
-
 
