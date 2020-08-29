@@ -66,30 +66,7 @@ The.latex = args.latex
 The.useA12 = args.useA12
 The.cdelta = args.cdelta
 
-"""
-TODO
-try:                                
-        opts, args = getopt.getopt(argv, "hg:d", ["help", "grammar="]) 2
-    except getopt.GetoptError:           3
-        usage()                          4
-        sys.exit(2)                     
 
-
-# Analysis of Experimental Data
-
-This page is about the non-parametric statistical tests. It is also a chance for us to discuss a little
-statistical theory.
-
-## Before we begin...
-
-Imagine the following example contain objective scores gained from different optimizers
-_x1,x2,x3,x4,...etc_. Which results are ranked one, two, three etc...
-
-
-### Lesson Zero
-
-Some differences are obvious
-"""
 
 
 def rdiv0():
@@ -179,7 +156,7 @@ rank ,         name ,    med   ,  iqr
 
 #### Lesson Four
 
-Heh? Where's  lesson four?
+lesson four?
 
 ### Lesson Five
 
@@ -240,231 +217,7 @@ def rdiv7():
     ])
 
 
-"""
 
-rank ,         name ,    med   ,  iqr 
-----------------------------------------------------
-   1 ,           x2 ,      25  ,    50 (--     *      -|---------     ), 0.01,  0.09,  0.25,  0.47,  0.86
-   2 ,           x3 ,      49  ,    47 (  ------      *|   -------    ), 0.08,  0.29,  0.49,  0.66,  0.89
-   3 ,           x1 ,      73  ,    37 (         ------|-    *   ---  ), 0.32,  0.57,  0.73,  0.86,  0.95
-
-## So, How to Rank?
-
-
-
-
-For the most part, we are concerned with very high-level issues that
-strike to the heart of the human condition:
-
--   What does it mean to find controlling principles in the world?
--   How can we find those principles better, faster, cheaper?
-
-But sometimes we have to leave those lofty heights to discuss more
-pragmatic issues. Specifically, how to present the results of an
-optimizer and, sometimes, how to compare and rank the results from
-different optimizers.
-
-Note that there is no best way, and often the way we present results
-depends on our goals, the data we are procesing, and the audience we are
-trying to reach. So the statistical methods discussed below are more
-like first-pass approximations to something you may have to change
-extensively, depending on the task at hand.
-
-In any case, in order to have at least one report that that you quickly
-generate, then....
-
-### Theory
-
-
-The test that one optimizer is better than another can be recast as four
-checks on the *distribution* of performance scores.
-
-1.  Visualize the data, somehow.
-2.  Check if the central tendency of one distribution is *better* than
-    the other; e.g. compare their median values.
-3.  Check the different between the central tendencies is not some
-    *small effect*.
-4.  Check if the distributions are *significantly different*;
-
-
-The first step is very important. Stats should always be used as sanity
-checks on intuitions gained by other means. So look at the data before
-making, possibly bogus, inferences from it. For example, here are some
-charts showing the effects on a population as we apply more and more of
-some treatment. Note that the mean of the populations remains unchanged,
-yet we might still endorse the treatment since it reduces the
-uncertainty associated with each population.
-
-![img](img/index_customers_clip_image002.jpg)
-
-Note that 2 and 3 and 4 must be all be true to assert that one thing
-generates better numbers than another.  For example, one bogus
-conclusion would be to just check median values (step2) and ignore
-steps3 and steps4. _BAD IDEA_. Medians can be very misleading unless
-you consider the overall distributions (as done in step3 and step4).
-
-(As an aside, note that the above requests a check for _median_,
-not _mean_. This is required since, all things considered,
-means do not mean much, especially for highly skewed distributions.
-For example, Bill Gates and 35 homeless people are in the same room.
-Their mean annual income is over a billion dollars each- which is
-a number that characterized neither Mr. Gates or the homeless people.
-On the other hand, the median income of that population is close to zero-
-which is a number that characterizes most of that population. )
-
-In practice, step2,step3,step4 are
-listed in increasing order of effort (e.g. the _bootstrap sample_ method
-discussed later in this subject is an example of step4, and this
-can take a while to compute). So pragmatically, it is useful
-to explore the above in the order step1 then step2 then step3 then step4 (and _stopping_
-along the way if any part fails). For example, 
-one possible bogus inference would be to apply step4 without
-the step3 since if the *small effect* test fails, then the third
-*significance* test is misleading.
- For example, returning to the above distributions, note the large
-overlap in the top two curves in those plots. When distributions exhibit
-a very large overlap, it is very hard to determine if one is really
-different to the other. So large variances can mean that even if the
-means are *better*, we cannot really say that the values in one
-distribution are usually better than the other.
-
-### Step1: Visualization
-
-
-Suppose we had two optimizers which in a 10 repeated runs generated
-performance from two models:
-
-        1:       def _tile2():
-        2:         def show(lst):
-        3:            return xtile(lst,lo=0, hi=1,width=25,
-        4:                         show= lambda s:" %3.2f" % s)
-        5:         print "one", show([0.21, 0.29, 0.28, 0.32, 0.32, 
-        6:                            0.28, 0.29, 0.41, 0.42, 0.48])
-        7:         print "two", show([0.71, 0.92, 0.80, 0.79, 0.78, 
-        8:                            0.9,  0.71, 0.82, 0.79, 0.98])
-
-When faced with new data, always chant the following mantra:
-
--   *First* visualize it to get some intuitions;
--   *Then* apply some statistics to double check those intuitions.
-
-That is, it is *strong recommended* that, prior doing any statistical
-work, an analyst generates a visualization of the data. Percentile
-charts a simple way to display very large populations in very little
-space. For example, here are our results from *one*, displayed on a
-range from 0.00 to 1.00.
-
-    one         * --|            , 0.28,  0.29,  0.32,  0.41,  0.48
-    two             |    -- * -- , 0.71,  0.79,  0.80,  0.90,  0.98
-
-In this percentile chart, the 2nd and 3rd percentiles as little dashes
-left and right of the median value, shown with a *"\*"*, (learner
-*two*'s 3rd percentile is so small that it actually disappears in this
-display). The vertical bar *"|"* shows half way between the display's
-min and max (in this case, that would be (0.0+1.00)/2= 0.50)
-
-
-#### Xtile
-
-The advantage of percentile charts is that we can show a lot of data in
-very little space. 
-
-For example, here's an example where the _xtile_ Python function
-shows 2000 numbers on two lines:
-
--   Quintiles divide the data into the 10th, 30th, 50th, 70th, 90th
-    percentile.
--   Dashes (*"-"*) mark the range (10,30)th and (70,90)th percentiles;
--   White space marks the ranges (30,50)th and (50,70)th percentiles.
-
-Consider two distributions, of 1000 samples each: one shows square root
-of a *rand()* and the other shows the square of a *rand()*.
-
-       10:       def _tile() :
-       11:         import random
-       12:         r = random.random
-       13:         def show(lst):
-       14:           return xtile(lst,lo=0, hi=1,width=25,
-       15:                        show= lambda s:" %3.2f" % s)
-       16:         print "one", show([r()*0.5 for x in range(1000)])
-       17:         print "two", show([r()2   for x in range(1000)])
-
-In the following quintile charts, we show these distributions:
-
--   The range is 0 to 1.
--   One line shows the square of 1000 random numbers;
--   The other line shows the square root of 1000 random numbers;
-
-Note the brevity of the display:
-
-    one        -----|    *  ---  , 0.32,  0.55,  0.70,  0.84,  0.95
-    two --    *     |--------    , 0.01,  0.10,  0.27,  0.51,  0.85
-
-As before, the median value, shown with a *"\*"*; and the point half-way
-between min and max (in this case, 0.5) is shown as a vertical bar
-*"|"*.
-
-### Step2: Check Medians
-
-The median of a list is the middle item of the sorted values, if the list is of an odd size.
-If the list size is even, the median is the two values either side of the middle:
-
-    def median(lst,ordered=False):
-      lst = lst if ordered else sorted(lst)
-      n   = len(lst)
-      p   = n // 2
-      if (n % 2):  return lst[p]
-      p,q = p-1,p
-      q   = max(0,(min(q,n)))
-      return (lst[p] + lst[q]) * 0.5
-
-### Step3: Effect size
-
-An _effect size_ test is a sanity check that can be summarizes as follows:
-
-* Don't  sweat the small stuff; 
-
-I.e. ignore small differences between items in the samples.
-
- My
-preferred test for *small effect* has:
-
--   a simple intuition;
--   which makes no assumptions about (say) Gaussian assumptions;
--   and which has a solid lineage in the literature.
-
-Such a test is [Vargha and Delaney][vd00]'s A12 statistic.
- The statistic was
-proposed in Vargha and Delaney's 2000 paper was endorsed in many places
-including in [Acruci and Briad][ab11]'s ICSE 2011 paper.
-After I describe it to you, you will wonder why anyone would ever want
-to use anything else.
-
-[vd00]: http://jeb.sagepub.com/content/25/2/101.short   "A. Vargha and H. D. Delaney. A critique and improvement of the CL common language effect size statistics of McGraw and Wong. Journal of Educational and Behavioral Statistics, 25(2):101-132, 2000"
-
-[ab11]: http://goo.gl/4N34gk   "Andrea Arcuri, Lionel C. Briand: A practical guide for using statistical tests to assess randomized algorithms in software  engineering. ICSE 2011: 1-10"
-
- Given a performance measure seen in *m* measures
-of *X* and *n* measures of *Y*, the A12 statistics measures the
-probability that running algorithm *X* yields higher values than running
-another algorithm *Y*. Specifically, it counts how often we seen larger
-numbers in *X* than *Y* (and if the same numbers are found in both, we
-add a half mark):
-
-     a12= #(X.i > Y.j) / (n*m) + .5#(X.i == Y.j) / (n*m)
-
-According to Vargha and Delaney, a small, medium, large difference
-between two populations is:
-
--   *large* if `a12` is over 71%;
--   *medium* if `a12` is over 64%;
--   *small* if `a12` is 56%, or less.
-
-A naive version of this code is shown here in the _ab12slow_ function. While simple to
-code, this _ab12slow_ function runs in polynomial time (since for each item in _lst1_,
-it runs over all of _lst2_):
-
-"""
 
 
 def _ab12():
@@ -491,27 +244,7 @@ def _ab12():
         print(t2, a12slow(one, two))
 
 
-"""
 
-
-
-Note that the test code \__ab12_ shows that our fast and slow method generate the same A12 score, but the
-fast way does so thousands of times faster. The following tests show runtimes for lists of 5000 numbers:
-
-    experimemt  msecs(fast)  a12(fast)  msecs(slow)  a12(slow)
-    1less          13        0.257      9382           0.257  
-    1more          20        0.868      9869           0.868
-    same           11        0,502      9937           0.502
-
-
-## Significance Tests
-
-
-### Standard Utils
-
-Didn't we do this before?
-
-"""
 
 """
 
@@ -796,20 +529,7 @@ n   a12(fast)       a12(slow)       tfast / tslow
 ````
 
 
-## Non-Parametric Hypothesis Testing
 
-The following _bootstrap_ method was introduced in
-1979 by Bradley Efron at Stanford University. It
-was inspired by earlier work on the
-jackknife.
-Improved estimates of the variance were [developed later][efron01].  
-
-[efron01]: http://goo.gl/14n8Wf "Bradley Efron and R.J. Tibshirani. An Introduction to the Bootstrap (Chapman & Hall/CRC Monographs on Statistics & Applied Probability), 1993"
-
-
-To check if two populations _(y0,z0)_
-are different, many times sample with replacement
-from both to generate _(y1,z1), (y2,z2), (y3,z3)_.. etc.
 
 """
 
@@ -827,15 +547,6 @@ def sampleWithReplacement(lst):
 """
 
 
-Then, for all those samples,
- check if some *testStatistic* in the original pair
-hold for all the other pairs. If it does more than (say) 99%
-of the time, then we are 99% confident in that the
-populations are the same.
-
-In such a _bootstrap_ hypothesis test, the *some property*
-is the difference between the two populations, muted by the
-joint standard deviation of the populations.
 
 """
 
@@ -856,13 +567,7 @@ def testStatistic(y, z):
 
 """
 
-The rest is just details:
-
-+ Efron advises
-  to make the mean of the populations the same (see
-  the _yhat,zhat_ stuff shown below).
-+ The class _total_ is a just a quick and dirty accumulation class.
-+ For more details see [the Efron text][efron01].  
+ 
 
 """
 
@@ -948,14 +653,7 @@ Output:
 
 """
 
-Warning- the above took 8 seconds to generate since we used 1000 bootstraps.
-As to how many bootstraps are enough, that depends on the data. There are
-results saying 200 to 400 are enough but, since I am  suspicious man, I run it for 1000.
 
-Which means the runtimes associated with bootstrapping is a significant issue.
-To reduce that runtime, I avoid things like an all-pairs comparison of all treatments
-(see below: Scott-knott).  Also, BEFORE I do the boostrap, I first run
-the effect size test (and only go to bootstrapping in effect size passes:
 
 """
 
@@ -971,29 +669,6 @@ def different(l1, l2):
 
 """
 
-## Saner Hypothesis Testing
-
-The following code, which you should use verbatim does the following:
-
-
-+ All treatments are clustered into _ranks_. In practice, dozens
-  of treatments end up generating just a handful of ranks.
-+ The numbers of calls to the hypothesis tests are minimized:
-    + Treatments are sorted by their median value.
-    + Treatments are divided into two groups such that the
-      expected value of the mean values _after_ the split is minimized;
-    + Hypothesis tests are called to test if the two groups are truly difference.
-          + All hypothesis tests are non-parametric and include (1) effect size tests
-            and (2) tests for statistically significant numbers;
-          + Slow bootstraps are executed  if the faster _A12_ tests are passed;
-
-In practice, this means that the hypothesis tests (with confidence of say, 95%)
-are called on only a logarithmic number of times. So...
-
-+ With this method, 16 treatments can be studied using less than _&sum;<sub>1,2,4,8,16</sub>log<sub>2</sub>i =15_ hypothesis tests  and confidence _0.99<sup>15</sup>=0.86_.
-+ But if did this with the 120 all-pairs comparisons of the 16 treatments, we would have total confidence _0.99<sup>120</sup>=0.30.
-
-For examples on using this code, see _rdivDemo_ (below).
 
 """
 
