@@ -30,7 +30,7 @@ looking for “short cuts” that simplify the whole analysis.
 
 ## We offer two approaches to reproduce RQ1, RQ2, and RQ3 results as shown in the image below:
 1. ### Quick Replication (OR) 
-2. ### Replication from Scratch
+2. ### Replication from Scratch (slow)
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/overview.PNG" width="500">
 
