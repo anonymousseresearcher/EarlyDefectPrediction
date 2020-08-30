@@ -26,7 +26,7 @@ cat ./output/table4/zifa.txt | python2 run_scott_knott.py --text 30 --latex Fals
 
 echo "6 of 14 csv files generated"
 
-cat ./output/table4/zg-score.txt | python2 run_scott_knott.py --text 30 --latex False > ./output/table4/scratch_table4_gm.csv
+cat ./output/table4/zgm.txt | python2 run_scott_knott.py --text 30 --latex False > ./output/table4/scratch_table4_gm.csv
 
 echo "7 of 14 csv files generated"
 
