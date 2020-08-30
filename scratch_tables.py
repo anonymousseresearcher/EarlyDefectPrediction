@@ -30,7 +30,7 @@ def updateMap(ruleScoreMap, df, add=True):
 
 
 def getMetricMedian(measuresCSVPath, metric, policy):
-    df = pd.read_csv(measuresCSVPath + 'z' + metric + '.csv')
+    df = pd.read_csv(measuresCSVPath +  metric + '.csv')
     medianValues = df[df['policy'].str.strip() == policy]['median'].values.tolist()
 
     if len(medianValues) == 1:
@@ -38,7 +38,7 @@ def getMetricMedian(measuresCSVPath, metric, policy):
 
         rankValues = df[df['policy'].str.strip() == policy]['rank'].values.tolist()
 
-        if rankValues[0] >= df['rank'].max() and metric in ['roc_auc', 'recall', 'gm']:
+        if rankValues[0] >= df['rank'].max() and metric in ['auc',  'recall', 'gm']:
 
             return str(mv), 1
         elif rankValues[0] <= df['rank'].min() and metric in ['pf', 'd2h', 'brier', 'ifa']:
@@ -50,7 +50,7 @@ def getMetricMedian(measuresCSVPath, metric, policy):
 
 
 def getMetricRank(measuresCSVPath, metric, policy):
-    df = pd.read_csv(measuresCSVPath + 'z' + metric + '.csv')
+    df = pd.read_csv(measuresCSVPath +  metric + '.csv')
     medianValues = df[df['policy'].str.strip() == policy]['rank'].values.tolist()
 
     if len(medianValues) == 1:
@@ -114,7 +114,7 @@ def generateTable(measuresCSVPath, fileName, sortedMap):
         f += win
         d2h.append(mv)
 
-        mv, win = getMetricMedian(measuresCSVPath, 'roc_auc', key)
+        mv, win = getMetricMedian(measuresCSVPath, 'auc', key)
         f += win
         auc.append(mv)
 
@@ -167,23 +167,15 @@ def generateTable(measuresCSVPath, fileName, sortedMap):
 
 def run(fileName, measuresCSVPath):
 
-
-    if 'table4' in measuresCSVPath:
-        tableStr = 'scratch_table4_'
-    elif 'table5' in measuresCSVPath:
-        tableStr = 'scratch_table5_'
-    else:
-        tableStr = 'error'
-
     ruleScoreMap = {}
 
-    d2hDF = pd.read_csv(measuresCSVPath + tableStr + 'd2h.csv')
-    rocDF = pd.read_csv(measuresCSVPath +  tableStr + 'auc.csv')
-    ifaDF = pd.read_csv(measuresCSVPath + tableStr + 'ifa.csv')
-    brierDF = pd.read_csv(measuresCSVPath + tableStr + 'brier.csv')
-    recallDF = pd.read_csv(measuresCSVPath + tableStr + 'recall.csv')
-    pfDF = pd.read_csv(measuresCSVPath + tableStr + 'pf.csv')
-    gscoreDF = pd.read_csv(measuresCSVPath + tableStr + 'gm.csv')
+    d2hDF = pd.read_csv(measuresCSVPath +  'd2h.csv')
+    rocDF = pd.read_csv(measuresCSVPath +  'auc.csv')
+    ifaDF = pd.read_csv(measuresCSVPath +  'ifa.csv')
+    brierDF = pd.read_csv(measuresCSVPath +  'brier.csv')
+    recallDF = pd.read_csv(measuresCSVPath +  'recall.csv')
+    pfDF = pd.read_csv(measuresCSVPath +  'pf.csv')
+    gscoreDF = pd.read_csv(measuresCSVPath +  'gm.csv')
 
     updateMap(ruleScoreMap, d2hDF, False)
     updateMap(ruleScoreMap, rocDF, True)
@@ -201,5 +193,5 @@ def run(fileName, measuresCSVPath):
 
 if __name__ == '__main__':
     print("Generating")
-    run('TableIV', './output/table4/')
-    run('TableV', './output/table5/')
+    run('TableIV', './output/table4/scratch_table4_')
+    run('TableV', './output/table5/scratch_table5_')
