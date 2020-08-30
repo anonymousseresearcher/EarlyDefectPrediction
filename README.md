@@ -37,7 +37,7 @@ looking for “short cuts” that simplify the whole analysis.
 ## Prerequisites
 
 * Linux Terminal
-* python 2 and python 3
+* python 2.7.5 and python 3.6.7
 * Git support
 
 ### On your Linux terminal
