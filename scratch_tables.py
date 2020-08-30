@@ -166,15 +166,24 @@ def generateTable(measuresCSVPath, fileName, sortedMap):
 
 
 def run(fileName, measuresCSVPath):
+
+
+    if 'table4' in measuresCSVPath:
+        tableStr = 'scratch_table4_'
+    elif 'table5' in measuresCSVPath:
+        tableStr = 'scratch_table5_'
+    else:
+        tableStr = 'error'
+
     ruleScoreMap = {}
 
-    d2hDF = pd.read_csv(measuresCSVPath + 'zd2h.csv')
-    rocDF = pd.read_csv(measuresCSVPath + 'zroc_auc.csv')
-    ifaDF = pd.read_csv(measuresCSVPath + 'zifa.csv')
-    brierDF = pd.read_csv(measuresCSVPath + 'zbrier.csv')
-    recallDF = pd.read_csv(measuresCSVPath + 'zrecall.csv')
-    pfDF = pd.read_csv(measuresCSVPath + 'zpf.csv')
-    gscoreDF = pd.read_csv(measuresCSVPath + 'zgm.csv')
+    d2hDF = pd.read_csv(measuresCSVPath + tableStr + 'd2h.csv')
+    rocDF = pd.read_csv(measuresCSVPath +  tableStr + 'roc_auc.csv')
+    ifaDF = pd.read_csv(measuresCSVPath + tableStr + 'ifa.csv')
+    brierDF = pd.read_csv(measuresCSVPath + tableStr + 'brier.csv')
+    recallDF = pd.read_csv(measuresCSVPath + tableStr + 'recall.csv')
+    pfDF = pd.read_csv(measuresCSVPath + tableStr + 'pf.csv')
+    gscoreDF = pd.read_csv(measuresCSVPath + tableStr + 'gm.csv')
 
     updateMap(ruleScoreMap, d2hDF, False)
     updateMap(ruleScoreMap, rocDF, True)
