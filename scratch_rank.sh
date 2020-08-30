@@ -56,6 +56,6 @@ echo "13 of 14 csv files generated"
 
 cat ./output/table5/zgm.txt | python2 run_scott_knott.py --text 30 --latex False > ./output/table5/scratch_table5_gm.csv
 
-echo "14 csv files generated the current working directory"
+echo "7 csv files generated in ./output/table4/ and 7 csv files generated in ./output/table5/"
 
 
