@@ -111,7 +111,7 @@ class featureSelector():
             selected_row = df.sample(1).iloc[0, :]
             dists = measures(selected_row, df)
             df['d_'] = dists
-            hits = df[df[target] == df.iloc[0][-2]].iloc[:, :-1][:k] # do you just pick the distance? not the whole column, previously it was picking up the while dataset without the distance
+            hits = df[df[target] == df.iloc[0][-2]].iloc[:, :-1][:k] 
             miss = df[df[target] != df.iloc[0][-2]].iloc[:, :-1][:k]
 #            print(hits)
 #            import pdb
