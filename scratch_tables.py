@@ -178,7 +178,7 @@ def run(fileName, measuresCSVPath):
     ruleScoreMap = {}
 
     d2hDF = pd.read_csv(measuresCSVPath + tableStr + 'd2h.csv')
-    rocDF = pd.read_csv(measuresCSVPath +  tableStr + 'roc_auc.csv')
+    rocDF = pd.read_csv(measuresCSVPath +  tableStr + 'auc.csv')
     ifaDF = pd.read_csv(measuresCSVPath + tableStr + 'ifa.csv')
     brierDF = pd.read_csv(measuresCSVPath + tableStr + 'brier.csv')
     recallDF = pd.read_csv(measuresCSVPath + tableStr + 'recall.csv')
