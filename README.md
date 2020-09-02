@@ -29,8 +29,8 @@ before assuming complexity, it is prudent to check the raw data
 looking for “short cuts” that simplify the whole analysis.
 
 ## We offer two approaches to reproduce RQ1, RQ2, and RQ3 results as shown in the image below:
-1. ### Quick Replication (OR) 
-2. ### Replication from Scratch (slow)
+1. ### Quick Replication (1 hr) (OR) 
+2. ### Replication from Scratch (24 hr) (slow)
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/overview.PNG" width="500">
 
@@ -46,11 +46,11 @@ looking for “short cuts” that simplify the whole analysis.
 1. $ `cd EarlyDefectPrediction`
 1. $ `pip3 install -r requirements.txt`
 
-## 1. For `Quick Replication` follow the steps in the image below
+## 1. For `Quick Replication` (1 hr) follow the steps in the image below
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/quick.PNG" width="900">
 
-## 2. To replicate from `scratch` follow the steps in the image below
+## 2. To replicate from `scratch` (24 hr) follow the steps in the image below
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/scratch.PNG" width="900">
 
