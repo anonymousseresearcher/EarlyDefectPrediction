@@ -1,32 +1,8 @@
-# [Paper: Early Life Cycle Software Analytics. Why? How?](https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/paper.pdf) 
+# [Paper: Early Life Cycle Software Defect Prediction. Why? How?](https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/paper.pdf) 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Alarm_Clock_Vector.svg" width="350">
 
-Abstract—Many methods in defect prediction are “datahungry”;
-i.e. (1) given a choice of using more data, or some
-smaller sample, researchers assume that more is better; (2) when
-data is missing, researchers take elaborate steps to transfer data
-from another project; and (3) given a choice of older data or
-some more recent sample, researchers usually ignore older data.
-Based on the analysis of hundreds of popular Github projects
-(with 1.2 million commits), we suggest that for defect prediction,
-there is limited value in such data-hungry approaches. Data
-for our sample of projects last for 84 months and contains
-3,728 commits (median values). Across these projects, most of
-the defects occur very early in their life cycle. Hence, defect
-predictors learned from the first 150 commits and four months
-perform just as well as anything else.
-This means that, contrary to the “data-hungry” approach,
-(1) small samples of data from these projects are all that is
-needed for defect prediction; (2) transfer learning has limited
-value since it is needed only for the first 4 of 84 months (i.e. just
-4% of the life cycle); (3) after the first few months, we need not
-continually update our defect prediction models.
-We hope these results inspire other researchers to adopt a
-‘simplicity-first” approach to their work. Certainly, there are
-domains that require a complex and data-hungry analysis. But
-before assuming complexity, it is prudent to check the raw data
-looking for “short cuts” that simplify the whole analysis.
+Abstract—Many researchers assume that, for software analyt-ics,  “more  data  is  better”.  We  write  to  show  that,  at  least  forlearning  defect  predictors,  this  may  not  be  true.To demonstrate this, we analyzed hundreds of popular GitHubprojects.   These   projects   ran   for   84   months   and   contained3,728  commits  (median  values).  Across  these  projects,  most  ofthe  defects  occur  very  early  in  their  life  cycle.  Hence,  defectpredictors  learned  from  the  first  150  commits  and  four  monthsperform  just  as  well  as  anything  else.  This  means  that,  at  leastfor the projects studied here, after the first few months, we neednot  continually  update  our  defect  prediction  models.We  hope  these  results  inspire  other  researchers  to  adopt  a“simplicity-first.” approach to their work. Indeed, some domainsrequire a complex and data-hungry analysis. But before assumingcomplexity, it is prudent to check the raw data looking for “shortcuts”  that  simplify  the  whole  analysis.
 
 ## We offer two approaches to reproduce RQ1, RQ2, and RQ3 results as shown in the image below:
 1. ### Quick Replication (1 hr) (OR) 
@@ -54,11 +30,8 @@ looking for “short cuts” that simplify the whole analysis.
 
 <img src="https://github.com/anonymousseresearcher/EarlyDefectPrediction/blob/master/images/scratch.PNG" width="900">
 
+## Dataset
 
-
-## Resources
-
-1. ## Projects with release information are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
-2. ## Project predictions (pre-generated) results are available [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/results/detailed_report) (Project-Release wise report across all learners and evaluation measures)
-
+1. ## Projects [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data)
+2. ## Project release information [here](https://github.com/anonymousseresearcher/EarlyDefectPrediction/tree/master/data/releases)
 
